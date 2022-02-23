@@ -7,4 +7,10 @@ import { AppController } from './app.controller';
   controllers: [AppController],
   providers: [],
 })
+
+@Module({
+  imports: [MoviesModule],
+  controllers: [AppController],
+  providers: [],
+})
 export class AppModule {}

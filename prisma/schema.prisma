@@ -1,0 +1,128 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id          Int       @id @default(autoincrement())
+  firstName   String
+  lastName    String?
+  avatar      String?
+  userName    String    @unique
+  password    String
+  phoneNumber String @unique
+  email       String    @unique
+  userlocation UserLocation?
+  productCa1 Product_Ca1[]
+  productCa2 Product_Ca2[]
+  productCa3 Product_Ca3[]
+  productCa4 Product_Ca4[]
+  productCa5 Product_Ca5[]
+  productCa6 Product_Ca6[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+enum UserState {
+  SELLER
+  BUYER
+  WAIT
+}
+
+model UserLocation {
+  id         Int       @id @default(autoincrement())
+  userName   String    @unique
+  userId     Int?
+  user       User? @relation(fields: [userId], references: [id])
+  userStatus UserState @default(WAIT)
+  latitude   Decimal
+  longtitude Decimal
+  address    Int?      @default(0)
+  updatedAt  DateTime  @updatedAt
+
+}
+
+model Product_Ca1 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}
+
+model Product_Ca2 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}
+
+model Product_Ca3 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}
+
+model Product_Ca4 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}
+
+model Product_Ca5 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}
+
+model Product_Ca6 {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    Int
+  Catalogue1  Int
+  Catalogue2  Int
+  file      String
+  caption   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  status    Int
+}

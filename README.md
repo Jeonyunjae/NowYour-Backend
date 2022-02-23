@@ -72,3 +72,10 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 # Nowyour-Backend
+
+
+
+##
+[] 1. prisma 구성
+[] 2. postgresql DB 구성
+[] 3. apollo server 구성
