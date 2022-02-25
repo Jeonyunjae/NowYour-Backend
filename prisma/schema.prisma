@@ -30,23 +30,22 @@ model User {
   updatedAt  DateTime  @updatedAt
 }
 
-enum UserState {
-  SELLER
-  BUYER
-  WAIT
-}
-
 model UserLocation {
   id         Int       @id @default(autoincrement())
   userName   String    @unique
   userId     Int?
   user       User? @relation(fields: [userId], references: [id])
-  userStatus UserState @default(WAIT)
+  userStatus Int @default(0)
   latitude   Decimal
   longtitude Decimal
   address    Int?      @default(0)
   updatedAt  DateTime  @updatedAt
+}
 
+model Login {
+  id       Int  @id @default(autoincrement())
+  nameName String?
+  password String
 }
 
 model Product_Ca1 {
