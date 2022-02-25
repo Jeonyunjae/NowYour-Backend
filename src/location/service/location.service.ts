@@ -1,5 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import client from 'src/client';
+import { Injectable, NotFoundException } from '@nestjs/common';\
 import { CreateLocationDTO } from '../dto/create-location.dto';
 import { UpdateLocationDTO } from '../dto/update-location.dto';
 import { Location } from '../entities/location.entity';
